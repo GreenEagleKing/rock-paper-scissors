@@ -16,13 +16,13 @@
 
     <label for="choosehand">Choose hand type:</label>
 
-    <select id="handChoice">
+    <select id="handChoice" onchange="playerSelection">
         <option value="Rock">Rock</option>
         <option value="Paper">Paper</option>
         <option value="Scissors">Scissors</option>
     </select>
 
-    <button onclick="playerSelection()">Play</button>
+    <button onclick="playRound()">Play</button>
 
 
 </body>
