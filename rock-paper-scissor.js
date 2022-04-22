@@ -2,6 +2,14 @@ let playerScore = 0;
 let computerScore = 0;
 let draw = 0;
 let playerSelection;
+let computerSelection;
+
+
+const body = document.body
+const playerSelectionDiv = document.createElement('div');
+const computerSelectionDiv = document.createElement('div');
+document.body.append(playerSelectionDiv, computerSelectionDiv);
+;
 
 
 // Returning player choice from button choice
@@ -11,6 +19,7 @@ let btns = document.querySelectorAll('button');
 btns.forEach(btns => btns.addEventListener('click', (e) => {
     playerSelection = e.target.id
     console.log('Player selected ' + playerSelection)
+    playerSelectionDiv.innerText = 'Player selected ' + playerSelection;
 }))
 
 
@@ -19,16 +28,17 @@ btns.forEach(btns => btns.addEventListener('click', (e) => {
 function computerPlay() {
     const shapes = ['Rock', 'Paper', 'Scissors'];
     const random = Math.floor(Math.random() * shapes.length);
-    return (shapes[random]);
+    computerSelection = (shapes[random]);
+    computerSelectionDiv.innerText = 'Computer selected ' + computerSelection;
+    return computerSelection;
 }
 
-let computerSelection = computerPlay();
-console.log("Computer selected " + computerSelection);
 
 
 // Play 1 round of RPS using playerSelection and computerSelection
 
 function playRound (playerSelection, computerSelection) {
+    
     console.log("Computer selected " + computerSelection);
         
         if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
