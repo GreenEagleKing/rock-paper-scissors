@@ -1,15 +1,18 @@
 let playerScore = 0;
 let computerScore = 0;
-let draw = 0
+let draw = 0;
+let playerSelection;
 
-// Returning player choice from html dropdown
 
-var playerChoice = function () {
-    const selectedValue = document.getElementById("handChoice").value;
-    return (selectedValue);
-}
+// Returning player choice from button choice
 
-let playerSelection = playerChoice;
+let btns = document.querySelectorAll('button');
+
+btns.forEach(btns => btns.addEventListener('click', (e) => {
+    playerSelection = e.target.id
+    console.log('Player selected ' + playerSelection)
+}))
+
 
 // computerPlay function - computer randomly selects rock,paper or scissors and outputs
 
@@ -26,7 +29,7 @@ console.log("Computer selected " + computerSelection);
 // Play 1 round of RPS using playerSelection and computerSelection
 
 function playRound (playerSelection, computerSelection) {
-    console.log("Play computer selected " + computerSelection);
+    console.log("Computer selected " + computerSelection);
         
         if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
          alert("You win! Rock beats Scissors"); playerScore++;
@@ -50,10 +53,9 @@ function playRound (playerSelection, computerSelection) {
 
 function game() {
     for (let i = 0; i < 5; i++) {
-    let playerSelection = playerChoice();
+    //let playerSelection = player();
     let computerSelection = computerPlay();
     let roundResult = playRound(playerSelection, computerSelection);
-    console.log(roundResult);
     gameScore(roundResult);
     console.log("Player score is " + playerScore);
     console.log("Computer score is " + computerScore);
@@ -68,6 +70,8 @@ function game() {
     }
 }
 
+// Result - Keeping track of the score 
+
 function gameScore(result){
 
     if (result === playerScore) {
@@ -79,3 +83,10 @@ function gameScore(result){
     }
 }
 }
+
+// When RPS button is clicked game function is run
+
+let btn = document.getElementsByClassName('buttons');
+for (var i = 0 ; i < btn.length; i++) {
+    btn[i].addEventListener('click', game) ; 
+ }

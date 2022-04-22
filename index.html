@@ -6,23 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-   <script type="text/javascript" src="rock-paper-scissor.js"></script>
+   <script src="rock-paper-scissor.js" defer></script>
 
 </head>
 <body>
     
 
-    <!--- Human player input selected from dropdown list -->
+    <!--- Human player input from button -->
+<div class="buttons">
 
     <label for="choosehand">Choose hand type:</label>
 
-    <select id="handChoice" onchange="playerSelection">
+    <button id="Rock">Rock</button>
+    <button id="Paper">Paper</button>
+    <button id="Scissors">Scissors</button>
+
+</div>    
+
+    <!---<select id="handChoice" onchange="playerSelection">
         <option value="Rock">Rock</option>
         <option value="Paper">Paper</option>
         <option value="Scissors">Scissors</option>
     </select>
 
-    <button onclick="game()">Play</button>
+    <button onclick="game()">Play</button> -->
 
 
 </body>
