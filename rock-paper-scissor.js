@@ -5,6 +5,8 @@ let playerSelection;
 let computerSelection;
 
 
+// DOM ELements created and called
+
 const body = document.body
 const playerSelectionDiv = document.createElement('h2');
 const computerSelectionDiv = document.createElement('h2');
@@ -21,9 +23,9 @@ let btns = document.querySelectorAll('button');
 
 btns.forEach(btns => btns.addEventListener('click', (e) => {
     playerSelection = e.target.id
-    playerSelectionDiv.innerText = 'Player selected ' + playerSelection;
-    return playerSelection;
+    return;
 }))
+playerSelectionDiv.innerText = 'Player selected ' + playerSelection;
 }
 
 
@@ -100,7 +102,7 @@ function reset(){
     computerScore = 0
     playerSelectionDiv.innerText = "Please select";
     computerSelectionDiv.innerText = "Awaiting player selection";
-    return playerPlay();
+    return;
 }
 
 // When RPS player input button is clicked, game function is run
